@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icon Scope property Test</title>
+  <style>
+    @scope (:is(.card-list, .facility__categories, .card__image, .icon-container)) {
+      --_i-xxlg: 9rem;
+
+      .icon {
+        display: inline-block;
+        position: relative;
+
+        &::before {
+          content: '';
+          width: 100%;
+          height: 100%;
+          inset: 0;
+          border-radius: 50%;
+          position: absolute;
+          z-index: 1;
+          background-color: #f88;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          inset: 0;
+          border-radius: 50%;
+          background-color: #fbb;
+        }
+
+        &.xxlg {
+          width: var(--_i-xxlg);
+          height: var(--_i-xxlg);
+        }
+
+        @media screen and (max-width:105rem) {
+          --_i-xxlg: 7.5rem;
+        }
+
+        @media screen and (max-width:90rem) {
+          --_i-xxlg: 6.25rem;
+        }
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="icon-container">
+    <h2>Icon Scope property Test</h2>
+    <i class="icon xxlg"></i>
+  </main>
+</body>
+</html>
